@@ -7,6 +7,7 @@ import java.util.Collections;
 
 public class GoFishTest {
 
+
   @Test
   public void GoFish_instantiatesCorrectly_true() {
     GoFish myGame = new GoFish();
@@ -90,6 +91,25 @@ public class GoFishTest {
     ArrayList player1deck = myGame.dealOutCards(player1hand, newDeck);
     ArrayList player2deck = myGame.dealOutCards(player2hand, newDeck);
     assertEquals(38, newDeck.size());
+  }
+
+  @Test
+  public void addPointForDoubles_PlayersPointIncreases_int() {
+    GoFish myGame = new GoFish(); //new GoFish game
+    Player player1 = myGame.getPlayer1(); // new player1
+    ArrayList player1hand = player1.getPlayersHand(); //empty arraylist
+    ArrayList originalDeck = myGame.addToDeck(); // populate master deck
+    ArrayList newDeck = myGame.shuffleDeck(originalDeck); //shuffle master deck
+    player1hand.add(1);
+    player1hand.add(2);
+    player1hand.add(3);
+    player1hand.add(4);
+    player1hand.add(4);
+    player1hand.add(6);
+    player1hand.add(6);
+    //ArrayList player1deck = myGame.dealOutCards(player1hand, newDeck); // player has 7 cards
+    int totalPoints = player1.addPointForDoubles();
+    assertEquals(2, totalPoints);
   }
 
 }

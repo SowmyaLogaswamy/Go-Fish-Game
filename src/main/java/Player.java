@@ -19,4 +19,15 @@ public class Player {
     return mPlayersHand;
   }
 
+  public int addPointForDoubles() {
+    ArrayList hand = this.getPlayersHand();
+    for (int i = 0; i < 14; i++) {
+      int occurrences = Collections.frequency(hand, i);
+      if (occurrences == 2) {
+        this.mPoints += 1;
+      }
+    }
+    return getPoints();
+  }
+
 }
