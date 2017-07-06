@@ -25,6 +25,7 @@ public class Player {
       int occurrences = Collections.frequency(hand, i);
       if (occurrences == 2) {
         this.mPoints += 1;
+        hand.removeAll(Collections.singleton(i));
       }
     }
     return getPoints();

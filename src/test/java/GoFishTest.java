@@ -95,6 +95,24 @@ public class GoFishTest {
 
   @Test
   public void addPointForDoubles_PlayersPointIncreases_int() {
+    GoFish myGame = new GoFish();
+    Player player1 = myGame.getPlayer1();
+    ArrayList player1hand = player1.getPlayersHand();
+    ArrayList originalDeck = myGame.addToDeck();
+    ArrayList newDeck = myGame.shuffleDeck(originalDeck);
+    player1hand.add(1);
+    player1hand.add(2);
+    player1hand.add(3);
+    player1hand.add(4);
+    player1hand.add(4);
+    player1hand.add(6);
+    player1hand.add(6);
+    int totalPoints = player1.addPointForDoubles();
+    assertEquals(2, totalPoints);
+  }
+
+  @Test
+  public void addPointForDoubles_HandSizeDecreases_int() {
     GoFish myGame = new GoFish(); //new GoFish game
     Player player1 = myGame.getPlayer1(); // new player1
     ArrayList player1hand = player1.getPlayersHand(); //empty arraylist
@@ -109,7 +127,7 @@ public class GoFishTest {
     player1hand.add(6);
     //ArrayList player1deck = myGame.dealOutCards(player1hand, newDeck); // player has 7 cards
     int totalPoints = player1.addPointForDoubles();
-    assertEquals(2, totalPoints);
+    assertEquals(3, player1hand.size());
   }
 
 }
