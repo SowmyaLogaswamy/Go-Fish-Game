@@ -51,4 +51,18 @@ public class GoFish {
      }
      return playerHand;
    }
+
+   public boolean playerTwoDoYouHave(int number, ArrayList playerTwoHand, ArrayList playerOneHand, ArrayList masterDeck) {
+      // player 1 asks player 2
+      if (playerTwoHand.contains(number)) { // if the number is present in player 2's hand
+        playerTwoHand.remove(number);
+        playerOneHand.add(number);
+        return true;
+      } else { // Go Fish
+        playerOneHand.add(masterDeck.get(0));
+        masterDeck.remove(masterDeck.get(0));
+        // playerOneTurn = false;
+        return false;
+      }
+    }
 }

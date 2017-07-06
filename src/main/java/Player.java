@@ -30,5 +30,4 @@ public class Player {
     }
     return getPoints();
   }
-
 }

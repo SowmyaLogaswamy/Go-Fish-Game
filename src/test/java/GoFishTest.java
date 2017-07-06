@@ -130,4 +130,33 @@ public class GoFishTest {
     assertEquals(3, player1hand.size());
   }
 
+  @Test
+  public void playerTwoDoYouHave_testsForTrue_boolean() {
+    GoFish myGame = new GoFish();
+    Player player1 = myGame.getPlayer1();
+    Player player2 = myGame.getPlayer2();
+    ArrayList player1hand = player1.getPlayersHand();
+    ArrayList player2hand = player2.getPlayersHand();
+    ArrayList originalDeck = myGame.addToDeck();
+    ArrayList newDeck = myGame.shuffleDeck(originalDeck);
+    player1hand.add(1);
+    player1hand.add(2);
+    player1hand.add(3);
+    player1hand.add(4);
+    player1hand.add(5);
+    player1hand.add(6);
+    player1hand.add(7);
+    player2hand.add(1);
+    player2hand.add(2);
+    player2hand.add(3);
+    player2hand.add(4);
+    player2hand.add(5);
+    player2hand.add(6);
+    player2hand.add(7);
+    boolean answer = myGame.playerTwoDoYouHave(1, player1hand, player2hand, newDeck);
+    assertEquals(true, answer);
+  }
+
+
+
 }
