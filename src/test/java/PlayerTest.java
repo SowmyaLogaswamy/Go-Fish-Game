@@ -24,8 +24,7 @@ public class PlayerTest {
     GoFish myGame = new GoFish();
     ArrayList originalDeck = myGame.addToDeck();
     ArrayList newDeck = myGame.shuffleDeck(originalDeck);
-    ArrayList dealtHand = myGame.dealOutCards(newDeck);
-    assertEquals(7, mPlayersHand.size());
+
 
   }
 }

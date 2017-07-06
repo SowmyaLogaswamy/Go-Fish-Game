@@ -17,15 +17,15 @@ public class GoFish {
     mGameOver = false;
   }
 
-  public Object getPlayer1() {
+  public Player getPlayer1() {
     return mPlayer1;
   }
 
-  public Object getPlayer2() {
+  public Player getPlayer2() {
     return mPlayer2;
   }
 
-  public Object playerOnesTurn() {
+  public boolean playerOnesTurn() {
     return mPlayerOnesTurn;
   }
 
@@ -44,11 +44,11 @@ public class GoFish {
     return masterDeck;
   }
 
-   public ArrayList dealOutCards(ArrayList deck) {
-     for (int i = 0; i <=8; i++) {
-       mPlayer1.getPlayersHand().deck;
-       deck.remove(i);
+   public ArrayList dealOutCards(ArrayList playerHand, ArrayList masterDeck) {
+     for (int i = 0; i < 7; i++) {
+       playerHand.add(masterDeck.get(i));
+       masterDeck.remove(masterDeck.get(i));
      }
-     return deck;
+     return playerHand;
    }
 }
